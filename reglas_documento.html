@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- <meta name="description" content="description here"> -->
     <link rel="root" href=""/> <!-- for JS -->
-    <link rel="canonical" href="/annodoc/reglas_documento.html">
+    <link rel="canonical" href="https://ahumadao.github.io/reglas_documento.html">
 
     <!-- Base jQuery-UI styles -->
     <link rel="stylesheet" href="css/jquery-ui-redmond.css">
@@ -61,11 +61,7 @@
 <ul>
   <li><a href="#introducción">Introducción</a></li>
   <li><a href="#anotación">Anotación</a></li>
-  <li><a href="#anotar-antecedentes-familiares-o-personales">Anotar antecedentes familiares o personales</a></li>
-  <li><a href="#anotar-la-conclusión-del-examen">Anotar la conclusión del examen</a></li>
-  <li><a href="#anotar-de-manera-dependiente-al-diagnostico">Anotar de manera dependiente al diagnóstico</a></li>
-  <li><a href="#anotar-menciones-negadas">Anotar menciones negadas</a></li>
-  <li><a href="#anotar-menciones-inciertas">Anotar menciones inciertas</a></li>
+  <li><a href="#selección-de-la-clasificación-del-documento">Selección de la clasificación del documento</a></li>
 </ul>
 
 <h2 id="introducción">Introducción</h2>
@@ -73,15 +69,6 @@
 <p>Además de realizar la anotación a nivel de entidades al interior de cada uno de los reportes de imagenología mencionados, se realizará un etiquetado a nivel de documento.</p>
 
 <p>Esto permitirá obtener la clase a la que pertenece cada documento, que será útil para el entrenamiento de modelos de clasificación de texto.</p>
-
-<p>Ejemplo:</p>
-
-<pre><code class="language-ann">Cambios postquirúrgicos de histerectomía total y doble anexectomía, no se reconocen masas ni focos hipermetabólicos en lecho quirúrgico.
-T1 M0 84 89 masas
-T2 M0 94 115 focos hipermetabólicos
-A1 menciónincierta[-] T1
-A2 menciónincierta[-] T2
-</code></pre>
 
 <h2 id="anotación">Anotación</h2>
 
