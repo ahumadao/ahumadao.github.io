@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reglas Anotación a nivel de documento</title>
+    <meta name="viewport" content="width=device-width">
+    <!-- <meta name="description" content="description here"> -->
+    <link rel="root" href=""/> <!-- for JS -->
+    <link rel="canonical" href="https://ahumadao.github.io/reglas_documento.html">
+
+    <!-- Base jQuery-UI styles -->
+    <link rel="stylesheet" href="css/jquery-ui-redmond.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- CSS for embedded visualizations -->
+    <link rel="stylesheet" href="css/style-vis.css">
+
+    <!-- head.js, required for embedding -->
+    <script type="text/javascript" src="lib/ext/head.load.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="topnav" href="https://ahumadao.github.io"> Inicio </a>
+    <a class="topnav" href="https://ahumadao.github.io/reglas_generales" target="#">Reglas Generales</a>
+    <a class="topnav" href="https://ahumadao.github.io/reglas_positivas">Reglas Positivas</a>
+    <a class="topnav" href="https://ahumadao.github.io/reglas_negativas">Reglas Negativas</a>
+    <a class="topnav" href="https://ahumadao.github.io/reglas_ortograficas">Reglas Ortográficas</a>
+    <a class="topnav" href="https://ahumadao.github.io/reglas_documento">Reglas Documento</a>
+
+    <span class="site-title-topnav">Annodoc</span>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="entry">
+
+  <header class="entry-header">
+    <h1>Reglas Anotación a nivel de documento</h1>
+  </header>
+
+  <article class="entry-content">
+  <p>En esta página se describirán las reglas para la anotación a nivel de documento del proceso de etiquetado de metástasis a distancia (M).</p>
+
+<h2 id="contenido">Contenido</h2>
+
+<ul>
+  <li><a href="#introducción">Introducción</a></li>
+  <li><a href="#anotación">Anotación</a></li>
+  <li><a href="#selección-de-la-clasificación-del-documento">Selección de la clasificación del documento</a></li>
+</ul>
+
+<h2 id="introducción">Introducción</h2>
+
+<p>Además de realizar la anotación a nivel de entidades al interior de cada uno de los reportes de imagenología mencionados, se realizará un etiquetado a nivel de documento.</p>
+
+<p>Esto permitirá obtener la clase a la que pertenece cada documento, que será útil para el entrenamiento de modelos de clasificación de texto.</p>
+
+<h2 id="anotación">Anotación</h2>
+
+<p>Para anotar a nivel de documento, deberán ingresar a la vista de anotación e ingresar a la sección de “Document Metadata”, con un ícono de 3 etiquetas.</p>
+
+<p>Luego hacer click en el menú desplegable y seleccionar “Metástasis-Documento” y presionar el signo más para agregar esa metadata al texto.</p>
+
+<p>Se mostrarán 3 opciones:</p>
+<ul>
+  <li>M0: Yes / No</li>
+  <li>M1: Yes / No</li>
+  <li>Metástasis incierta : Yes / No</li>
+</ul>
+
+<p>Se deberá escoger solo una de las opciones como “Yes” de la siguiente manera.</p>
+
+<h2 id="selección-de-la-clasificación-del-documento">Selección de la clasificación del documento</h2>
+
+<ol>
+  <li>Deberá identificar la sección de la conclusión del examen y observar si efectivamente la clase del texto aparece explícita en aquel segmento.</li>
+  <li>Si sale explícita para M1 o M0, seleccionar “Yes” en la que corresponda.</li>
+  <li>Si no aparece de forma explícita, se seguirá el siguiente algoritmo:
+    <ul>
+      <li>
+        <ul>
+          <li>Si hubiere al menos 1 mención catalogada como M1[-], el documento completo se clasifica como M1.</li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>Si no hubiere meniones catalogadas como M1[-] y hubiera al menos 1 mención catalogada como M1[+], el documento completo se clasifica como Metástasis incierta.</li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>Si no hubiere ninguna mención de M1, ya sea [-] o [+], el documento completo se clasifica como M0[-].</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <p style="float:right"> Ricardo Ahumada, Pablo Báez. 2021 </p>
+
+  </div>
+
+</footer>
+
+
+    </body>
+
+<!-- support for embedded visualizations -->
+<script type="text/javascript">
+    var root = ''; // filled in by jekyll
+    head.js(
+        // External libraries
+        root + 'lib/ext/jquery.min.js',
+        root + 'lib/ext/jquery.svg.min.js',
+        root + 'lib/ext/jquery.svgdom.min.js',
+        root + 'lib/ext/jquery-ui.min.js',
+        root + 'lib/ext/waypoints.min.js',
+        // brat helper modules
+        root + 'lib/brat/configuration.js',
+        root + 'lib/brat/util.js',
+        root + 'lib/brat/annotation_log.js',
+        root + 'lib/ext/webfont.js',
+        // brat main modules
+        root + 'lib/brat/dispatcher.js',
+        root + 'lib/brat/url_monitor.js',
+        root + 'lib/brat/visualizer.js',
+        // external parsing libraries
+        'https://spyysalo.github.io/conllu.js/conllu.js',
+        // annotation documentation support
+        root + 'lib/local/annodoc.js',
+        // project-specific collection data
+        root + 'lib/local/collections.js',
+        // project-specific configuration
+        root + 'lib/local/config.js'
+    );
+
+    var webFontURLs = [
+        root + 'static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+        root + 'static/fonts/Liberation_Sans-Regular.ttf'
+    ];
+
+    head.ready(function() {
+        // mark current collection (filled in by Jekyll)
+        Collections.listing['_current'] = '';
+
+	// performs all embedding and support functions
+	Annodoc.activate(Config.bratCollData, Collections.listing);
+    });
+</script>
+
+
+</html>
